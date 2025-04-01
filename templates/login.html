@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-cover bg-center" style="background-image: url('/static/imagenes/frutas-fondo.jpg');">
+
+    <header class="bg-green-500 p-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <img src="./log.jpg" alt="Logo de Juguería" class="h-10 mr-2">
+            <h1 class="text-white text-2xl font-bold">Juguería Delicias Naturales</h1>
+        </div>
+        <nav class="mt-2">
+            <a href="productos.html" class="text-white mr-4">Productos</a>
+            <a href="index.html#pagos" class="text-white mr-4">Formas de Pago</a>
+            <a href="login.html" class="text-white">Iniciar Sesión</a>
+            <a href="crud.html" class="text-white ml-4">Administrar Productos</a>
+        </nav>
+    </header>
+
+    <section id="login" class="container mx-auto mt-8">
+        <h2 class="text-2xl font-bold mb-4">Iniciar Sesión</h2>
+        <form id="formulario-login" class="max-w-sm mx-auto">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="usuario">Usuario:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="usuario" type="text" placeholder="Usuario">
+            </div>
+            <div class="mb-6">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="contrasena">Contraseña:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="contrasena" type="password" placeholder="Contraseña">
+            </div>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Iniciar Sesión</button>
+        </form>
+    </section>
+
+    <script src="/static/js/carrusel.js"></script>
+</body>
+
+</html>
