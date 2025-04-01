@@ -39,7 +39,26 @@
         </form>
     </section>
 
-    <script src="/static/js/carrusel.js"></script>
+    <script>
+        const formularioLogin = document.getElementById('formulario-login');
+
+        formularioLogin.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+
+            // Simulación de autenticación (reemplaza con tu lógica real)
+            if (usuario === 'usuario' && contrasena === 'contrasena') {
+                // Inicio de sesión exitoso
+                alert('Inicio de sesión exitoso');
+                window.location.href = 'index.html'; // Redirige a index.html
+            } else {
+                // Inicio de sesión fallido
+                alert('Usuario o contraseña incorrectos');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -24,4 +24,66 @@
         </nav>
     </header>
 
-    <section id="crud-productos" class
+    <section id="crud-productos" class="container mx-auto mt-8">
+        <h2 class="text-2xl font-bold mb-4">Administrar Productos</h2>
+
+        <form id="formulario-producto" class="max-w-lg mx-auto">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre-producto">Nombre:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre-producto" type="text" placeholder="Nombre del jugo">
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="precio-producto">Precio:</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="precio-producto" type="number" placeholder="Precio">
+            </div>
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Agregar/Actualizar</button>
+        </form>
+
+        <ul id="lista-crud-productos" class="mt-4">
+        </ul>
+    </section>
+
+    <script>
+        const formularioProducto = document.getElementById('formulario-producto');
+        const listaCrudProductos = document.getElementById('lista-crud-productos');
+
+        formularioProducto.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nombreProducto = document.getElementById('nombre-producto').value;
+            const precioProducto = document.getElementById('precio-producto').value;
+
+            const nuevoProducto = document.createElement('li');
+            nuevoProducto.innerHTML = `
+                <span>${nombreProducto} - S/ ${precioProducto}</span>
+                <button class="editar bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded ml-2">Editar</button>
+                <button class="eliminar bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded ml-2">Eliminar</button>
+            `;
+
+            listaCrudProductos.appendChild(nuevoProducto);
+
+            document.getElementById('nombre-producto').value = '';
+            document.getElementById('precio-producto').value = '';
+
+            // Redirige a la página de inicio después de agregar/actualizar
+            window.location.href = 'index.html';
+        });
+
+        listaCrudProductos.addEventListener('click', function (event) {
+            if (event.target.classList.contains('eliminar')) {
+                event.target.parentElement.remove();
+            } else if (event.target.classList.contains('editar')) {
+                const producto = event.target.parentElement;
+                const nombre = producto.querySelector('span').textContent.split(' - S/ ')[0];
+                const precio = producto.querySelector('span').textContent.split(' - S/ ')[1];
+
+                document.getElementById('nombre-producto').value = nombre;
+                document.getElementById('precio-producto').value = precio;
+
+                producto.remove();
+            }
+        });
+    </script>
+</body>
+
+</html>
